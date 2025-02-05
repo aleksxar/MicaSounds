@@ -1,0 +1,9 @@
+@echo off
+echo Taking ownership of C:\Windows\Media...
+takeown /f C:\Windows\Media /r /d y
+echo Granting full control permissions to current user...
+icacls C:\Windows\Media /grant "%USERNAME%:(F)" /t
+echo Copying media files...
+xcopy /s /y "Media" "C:\Windows\Media\"
+echo Media files copied successfully!
+pause
